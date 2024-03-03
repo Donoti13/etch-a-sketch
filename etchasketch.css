@@ -1,0 +1,48 @@
+
+/*
+.gridRow {
+
+    border: 1px solid black;
+
+}
+
+
+.cell {
+
+    border: 1px solid black;
+}
+
+*/
+
+:root {
+    --grid-cols: 1;
+    --grid-rows: 1;
+}
+
+#container {
+
+    display: grid;
+    grid-gap: 0.2em;
+    grid-template-rows: repeat (var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    background-color: rgb(0, 128, 128);
+}
+
+.grid-item {
+    padding: 1em;
+    border: 1px solid #ddd;
+    text-align: center;
+    background-color: rgb(198, 212, 145);
+    }
+
+
+.grid-item:hover {
+    color: blue;
+    background: #314b60;
+    box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, .3);
+};
+
+
+div {
+    background-color: green;
+}
