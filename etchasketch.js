@@ -1,5 +1,19 @@
 
+/*
+let topDiv = document.createElement('div');
+
+topDiv.textContent = "TOP DIV";
+
+topDiv.backgroundColor = "red";
+
+document.body.appendChild(topDiv).className = "top-div";
+*/
+
+
+
+
 const container = document.getElementById("container");
+ 
 
 function makeRows(rows, cols) {
 
@@ -17,10 +31,80 @@ function makeRows(rows, cols) {
 makeRows(16, 16);
 
 
-  
 
 
 
+
+
+
+const divBut = document.getElementById("buttonsdiv");
+
+divBut.className= "div-but";
+
+
+
+const resBut = document.getElementById("restart");
+
+resBut.textContent = "RESTART BUTTON";
+
+resBut.className = "restart-button";
+
+
+
+resBut.addEventListener('click', () => {
+
+prompt("enter number of squares for new grid:");
+
+
+});
+
+
+
+const cursorTag = document.querySelector("div.cursors");
+
+const balls = cursorTag.querySelectorAll("div");
+
+let aimX = 0;
+let aimY = 0;
+
+balls.forEach((ball, index) => {
+
+    let currentX = 0;
+    let currentY = 0;
+    
+    let speed = 0.3 - index * 0.015;
+
+
+    const animate = function () {
+        currentX += (aimX - currentX) * speed;
+        currentY += (aimY - currentY) * speed;
+        
+        ball.style.left = currentX + "px";
+        ball.style.top = currentY + "px";
+    
+    requestAnimationFrame(animate);
+    
+    }
+    
+    animate();
+    
+});
+
+
+
+
+
+
+document.addEventListener("mousemove", function(event) {
+
+ //   ball.style.left = event.pageX + "px";
+ //   ball.style.top = event.pageY + "px";
+ aimX = event.pageX;
+ aimY = event.pageY;
+
+
+
+});
 
 
 
