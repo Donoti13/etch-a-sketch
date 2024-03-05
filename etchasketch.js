@@ -10,33 +10,6 @@ document.body.appendChild(topDiv).className = "top-div";
 */
 
 
-
-
-const container = document.getElementById("container");
- 
-
-function makeRows(rows, cols) {
-
-    container.style.setProperty('--grid-rows', rows);
-    container.style.setProperty('--grid-cols', cols);
-
-        for (c = 0; c < (rows * cols); c++) {
-
-            let cell = document.createElement("div");
-            cell.innerText = (c +1);
-            container.appendChild(cell).className = "grid-item";
-        };
-};
-
-makeRows(16, 16);
-
-
-
-
-
-
-
-
 const divBut = document.getElementById("buttonsdiv");
 
 divBut.className= "div-but";
@@ -51,14 +24,145 @@ resBut.className = "restart-button";
 
 
 
+
+const container = document.getElementById("container");
+ 
+
+
+
+function makeRows(rows, cols) {
+
+    
+    container.style.setProperty('--grid-rows', rows);
+    container.style.setProperty('--grid-cols', cols);
+
+        for (c = 0; c < (rows * cols); c++) {
+
+            
+            let cell = document.createElement("div");
+            cell.innerText = (c +1);
+            container.appendChild(cell).className = "grid-item";
+        };
+};
+
+makeRows(16, 16);
+
+
+
+
+const subContainer = document.createElement("div");
+subContainer.className = "subcontainer";
+const bodyMain = document.querySelector("body");
+
+
+
+
 resBut.addEventListener('click', () => {
 
-prompt("enter number of squares for new grid:");
+    let userInput = prompt("enter number of squares for new grid less than 100:");
+
+    if (userInput <= 100) {
+
+        for (i = 0; i < userInput; i++)
+
+    
+
+    console.log(userInput);
+
+    bodyMain.removeChild(container);
+    bodyMain.appendChild(subContainer);
+        
+
+function newGrid(rows, cols) {
+
+    
+        container.style.setProperty('--grid-rows', rows);
+        container.style.setProperty('--grid-cols', cols);
+    
+            for (b = 0; b < (rows * cols); b++) {
+                
+          //      rows = userInput;
+          //      cols = userInput;
+                
+               let acell = document.createElement("div");
+                acell.innerText = (b +1);
+                subContainer.appendChild(acell).className = "gridy-item";
+            };
+    };
+    newGrid(userInput, userInput);
+}
+
+}
+
+);
 
 
-});
 
 
+
+
+
+/*
+function changeSize() {
+
+   // for (i = 0; i <= 100; i++)
+   // i = prompt();
+
+    if (prompt() > 100) {
+
+        makeRows(16, 16);
+        alert("wrong input");
+    }
+    else {
+
+        cell = prompt();
+     //   cols = prompt();
+
+        container.appendChild(rows, cols);
+
+    }
+    changeSize();
+   };
+*/
+ 
+
+//makeRows(prompt(), prompt());
+
+//container.appendChild(makeRows());
+
+
+
+    /*
+    
+        const newLayout = prompt.value;
+    
+        for (x = 0; x <= 5; x++) {
+        
+        x = newLayout;
+    
+       if (newLayout > 100) {
+
+        alert("wrong choice");
+       }     
+
+       else if (newLayout <= 100) {
+
+        rows, cols = newLayout; 
+       }
+
+        
+        makeRows(rows, cols);
+    
+        container.appendChild(makeRows());
+    }
+    });
+
+*/
+
+    
+
+
+//ANIMATION MOUSE HOVERING AND TRAILING 
 
 const cursorTag = document.querySelector("div.cursors");
 
@@ -92,9 +196,6 @@ balls.forEach((ball, index) => {
 
 
 
-
-
-
 document.addEventListener("mousemove", function(event) {
 
  //   ball.style.left = event.pageX + "px";
@@ -102,9 +203,10 @@ document.addEventListener("mousemove", function(event) {
  aimX = event.pageX;
  aimY = event.pageY;
 
-
-
 });
+
+
+
 
 
 
