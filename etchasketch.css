@@ -12,12 +12,14 @@
     border: 1px solid black;
 }
 
-*/
+
 
 :root {
     --grid-cols: 1;
     --grid-rows: 1;
 }
+
+*/
 
 #container {
 
@@ -56,6 +58,14 @@
     color: white;
 }
 
+.restarting-button {
+    background-color: rgb(105, 52, 204);
+    color: white;
+}
+
+
+
+
 .div-but {
 
     background-color: red;
@@ -77,16 +87,16 @@ div.cursors div {
 
 }
 
-.subContainer {
-
+.subcontainer {
     display: grid;
     grid-gap: 0.2em;
     grid-template-rows: repeat (var(--grid-rows), 1fr);
-    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    grid-template-columns: repeat (var(--grid-cols), 1fr);
     background-color: rgb(0, 128, 128);
     width: 960px;
     height: 960px;
 }
+ 
 
 .gridy-item {
     padding: 1em;

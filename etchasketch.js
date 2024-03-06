@@ -1,13 +1,4 @@
 
-/*
-let topDiv = document.createElement('div');
-
-topDiv.textContent = "TOP DIV";
-
-topDiv.backgroundColor = "red";
-
-document.body.appendChild(topDiv).className = "top-div";
-*/
 
 
 const divBut = document.getElementById("buttonsdiv");
@@ -18,9 +9,18 @@ divBut.className= "div-but";
 
 const resBut = document.getElementById("restart");
 
-resBut.textContent = "RESTART BUTTON";
+resBut.textContent = "SELECT BUTTON";
 
 resBut.className = "restart-button";
+
+
+
+const newBut = document.getElementById("restarting");
+
+newBut.textContent = "RELOAD ORIGINAL GRID";
+
+newBut.className = "restarting-button";
+
 
 
 
@@ -28,7 +28,7 @@ resBut.className = "restart-button";
 const container = document.getElementById("container");
  
 
-
+//CREATE GRID
 
 function makeRows(rows, cols) {
 
@@ -55,7 +55,7 @@ subContainer.className = "subcontainer";
 const bodyMain = document.querySelector("body");
 
 
-
+//BUTTON, up to 100, REMOVE ALL GRID CREATE NEW ONE
 
 resBut.addEventListener('click', () => {
 
@@ -89,17 +89,79 @@ function newGrid(rows, cols) {
                 subContainer.appendChild(acell).className = "gridy-item";
             };
     };
-    newGrid(userInput, userInput);
+   
+} else {
+    alert("wrong choice");
+    
 }
-
+newGrid(userInput, userInput);
 }
 
 );
 
 
 
+//ANIMATION MOUSE HOVERING AND TRAILING 
+
+const cursorTag = document.querySelector("div.cursors");
+
+const balls = cursorTag.querySelectorAll("div");
+
+let aimX = 0;
+let aimY = 0;
+
+balls.forEach((ball, index) => {
+
+    let currentX = 0;
+    let currentY = 0;
+    
+    let speed = 0.28 - index * 0.015;
 
 
+    const animate = function () {
+        currentX += (aimX - currentX) * speed;
+        currentY += (aimY - currentY) * speed;
+        
+        ball.style.left = currentX + "px";
+        ball.style.top = currentY + "px";
+    
+    requestAnimationFrame(animate);
+    
+    }
+    
+    animate();
+    
+});
+
+
+document.addEventListener("mousemove", function(event) {
+
+ //   ball.style.left = event.pageX + "px";
+ //   ball.style.top = event.pageY + "px";
+ aimX = event.pageX;
+ aimY = event.pageY;
+
+});
+
+
+
+
+newBut.addEventListener('click', () => {
+
+    location.reload();
+     
+});
+
+
+/*
+let topDiv = document.createElement('div');
+
+topDiv.textContent = "TOP DIV";
+
+topDiv.backgroundColor = "red";
+
+document.body.appendChild(topDiv).className = "top-div";
+*/
 
 
 /*
@@ -160,58 +222,6 @@ function changeSize() {
 */
 
     
-
-
-//ANIMATION MOUSE HOVERING AND TRAILING 
-
-const cursorTag = document.querySelector("div.cursors");
-
-const balls = cursorTag.querySelectorAll("div");
-
-let aimX = 0;
-let aimY = 0;
-
-balls.forEach((ball, index) => {
-
-    let currentX = 0;
-    let currentY = 0;
-    
-    let speed = 0.28 - index * 0.015;
-
-
-    const animate = function () {
-        currentX += (aimX - currentX) * speed;
-        currentY += (aimY - currentY) * speed;
-        
-        ball.style.left = currentX + "px";
-        ball.style.top = currentY + "px";
-    
-    requestAnimationFrame(animate);
-    
-    }
-    
-    animate();
-    
-});
-
-
-
-document.addEventListener("mousemove", function(event) {
-
- //   ball.style.left = event.pageX + "px";
- //   ball.style.top = event.pageY + "px";
- aimX = event.pageX;
- aimY = event.pageY;
-
-});
-
-
-
-
-
-
-
-
 
 
 
