@@ -43,11 +43,27 @@ function makeRows(rows, cols) {
             cell.innerText = (c +1);
             container.appendChild(cell).className = "grid-item";
         };
+        
+       
 };
 
 makeRows(16, 16);
 
 
+
+/*
+  function hex () {
+            
+
+            const randomColor = Math.floor(Math.random() * 1677215).toString(16);
+            cell.style.backgroundColor = "#" + randomColor; 
+            color.innerHTML = "#" + randomColor;
+            cell = hex;
+        }
+        demo.addEventListener("mouseover", hex);
+        hex();
+
+        */
 
 
 const subContainer = document.createElement("div");
@@ -101,6 +117,16 @@ newGrid(userInput, userInput);
 
 
 
+
+
+
+
+
+
+
+
+
+
 //ANIMATION MOUSE HOVERING AND TRAILING 
 
 const cursorTag = document.querySelector("div.cursors");
@@ -141,10 +167,25 @@ document.addEventListener("mousemove", function(event) {
  aimX = event.pageX;
  aimY = event.pageY;
 
+
+
+ function pickColor() {
+
+    var colors = ['#ff0000', '#00ff00', '#0000ff', '#ff3333', '#ffff00', '#ff6600'];
+
+    var random_color = colors[(Math.floor(Math.random() * colors.length))];
+
+    var x = container;
+    x.style.color = random_color;
+    x.style.backgroundColor = random_color;
+}
+pickColor()
+
 });
 
 
 
+//BUTTON TO RELOAD PAGE
 
 newBut.addEventListener('click', () => {
 
